@@ -1,0 +1,37 @@
+<div class="card">
+    <div class="card-header">
+      Aracı Kirala
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Müşteri Adı:</h5>
+      <select class="form-select" [(ngModel)]="customerId">
+        <option
+          [ngValue]="customer.customerID"
+          *ngFor="let customer of customers"
+        >{{ customer.companyName }}
+        </option>
+      </select> <br>
+      <label for="start">Aracı Kiralayacağınız Tarih:</label>
+      <input
+      (change)="onChangeEvent($event)"
+      min="{{ getRentMinDate() }}"
+      [(ngModel)]="rentDate"
+      type="date"
+      class="form-control"
+      id="rent-date"
+      placeholder="Bir gün seçiniz."
+    />
+            <label for="start">Bitiş Tarihi:</label>
+            <input
+            disabled="{{ !firstDateSelected }}"
+            min="{{ getReturnMinDate() }}"
+            max="{{ getReturnMaxDate() }}"
+            [(ngModel)]="returnDate"
+            type="date"
+            class="form-control"
+            id="return-date"
+            placeholder="Bir gün seçiniz."
+          /> <br>
+    <a class="btn btn-primary">Ödeme Sayfasına Git</a>
+    </div>
+  </div>

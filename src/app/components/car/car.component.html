@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css
+">
+<div *ngIf="dataLoaded==false"  class="spinner-border text-primary" role="status">
+</div>
+
+<br>
+<div class="mb-3">
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Ara">
+  </div>
+
+<div *ngIf="filterText.length>2" class="alert alert-primary"> 
+    {{filterText}} aradınız
+</div>
+<div class="jumbotron">
+<div class="row w-100 car-body">
+        <div class="col-md-3"  *ngFor="let car of cars | filterPipe:filterText">
+            <div class="card border-info mx-sm-1 p-3" style="width: 150px;"> 
+                <div *ngFor="let carImage of carImages" class="card border-info shadow text-info p-3 my-card" >
+                    <span class="fa fa-car" aria-hidden="true"></span></div>
+                <div class="text-info text-center mt-3"><h4>{{car.carName | uppercase}}</h4></div>
+                <div class="text-info text-center mt-3"><h6>Color: {{car.colorName}}</h6></div>
+                <div class="text-info text-center mt-2"><h6>Brand: {{car.brandName}}</h6></div>
+                <div class="text-info text-center mt-3"><h6>Model:{{car.modelYear}}</h6></div>
+                <div class="text-info text-center mt-3"><h6>Price:{{car.dailyPrice}}</h6></div>
+                <button routerLink="/cars/detail/{{car.carID}}" type="button" class="btn btn-success">Detail</button>
+            </div>
+        </div>
+     </div>
+</div>
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>

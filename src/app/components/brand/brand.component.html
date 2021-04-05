@@ -1,0 +1,22 @@
+<div *ngIf="dataLoaded==false"  class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+<table *ngIf="dataLoaded==true" class="table">
+    <thead>
+        <tr>
+            <th>Brand Name</th> 
+        </tr>
+    </thead>
+    <tr>
+        <td [class]="getAllBrandClass()" routerLink = "/cars"
+            (click)="deleteCurrentBrand()">
+            Tüm Arabalar 
+        </td>
+    </tr>
+    <tr *ngFor="let brand of brands">
+        <td [class]="getCurrentBrandClass(brand)"
+         routerLink = "/cars/brand/{{brand.brandId}}"
+         (click)="setCurrentBrand(brand)">{{brand.brandName}}</td>
+    </tr>
+</table> 

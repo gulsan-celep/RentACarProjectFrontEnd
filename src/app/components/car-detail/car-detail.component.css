@@ -1,0 +1,21 @@
+#card-detail{
+    width: 400px;
+    margin-left: 115px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn-card{
+    margin-right: 5px;
+    margin-bottom: 5px;
+    width: 150px;
+}
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input,
+label {
+    margin: .4rem 0;
+}

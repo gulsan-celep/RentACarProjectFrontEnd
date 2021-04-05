@@ -1,0 +1,15 @@
+<div class="card" id="card-detail">
+  <div *ngFor="let carImage of carImages">
+    <img src="{{path}}{{carImage.imagePath}}" class="d-block w-100" alt="...">  <div class="card-body">
+  </div>
+  <div>
+    <h5 class="card-title">Car Name: {{carDetails.carName | uppercase}}</h5>
+    <p class="card-text">Model Year {{carDetails.modelYear}}</p>
+    <p class="card-text">Daily Price {{carDetails.dailyPrice}}</p>
+    <a href="#" routerLink = "/cars" class="btn btn-warning btn-card">Geri</a>
+    <a *ngIf="rentalControl == true" class="btn btn-secondary btn-lg" disabled>{{ rentalMessage }}</a>
+    <a href="#" *ngIf="rentalControl == false"  class="btn btn-success btn-card" 
+     routerLink = "/cars/checkout/{{carDetails?.carID}}">Kirala</a>
+  </div> 
+  </div>
+</div>  
